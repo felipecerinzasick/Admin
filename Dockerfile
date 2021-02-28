@@ -1,8 +1,10 @@
 # Pull base image
 FROM python:3.6-slim
 
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+
 # Install psql so that "python manage.py dbshell" works
-RUN apt-get update -qq && apt-get install -y postgresql-client
+RUN apt-get update -qq && apt-get install -y apt-transport-https postgresql-client
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
