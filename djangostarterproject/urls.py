@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', index),
+    path('create/', views.create, name='create'),
+    path('manage/', views.manage, name='manage'),
 ]
 
 if settings.DEBUG:
