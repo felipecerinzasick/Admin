@@ -6,3 +6,17 @@ from user.models import UserModel
 @login_required
 def index(request):
     return render(request, 'user/index.html')
+
+
+def create(request):
+    context = {
+        'title': 'Create',
+    }
+    return render(request, 'djangostarterproject/create.html', context)
+
+
+def manage(request):
+    context = {
+        'title': 'manage',
+    }
+    return render(request, 'djangostarterproject/manage.html', context)
